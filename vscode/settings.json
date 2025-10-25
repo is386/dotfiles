@@ -1,0 +1,62 @@
+{
+  // Editor
+  "editor.fontFamily": "Inconsolata",
+  "editor.fontSize": 16,
+  "editor.lineHeight": 25,
+  "editor.selectionHighlight": false,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.formatOnType": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.codeLens": false,
+  "editor.renderWhitespace": "none",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "phase",
+  "editor.wordWrap": "on",
+  "editor.lineNumbers": "on",
+  "editor.glyphMargin": true,
+  "editor.occurrencesHighlight": "off",
+
+  // Explorer
+  "explorer.compactFolders": false,
+
+  // Extensions
+  "material-icon-theme.folders.theme": "classic",
+  "material-icon-theme.hidesExplorerArrows": true,
+
+  // Terminal
+  "terminal.integrated.fontFamily": "Inconsolata",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.defaultProfile.windows": "Ubuntu-20.04 (WSL)",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.cursorBlinking": true,
+
+  // Workbench
+  "workbench.settings.editor": "json",
+  "workbench.colorTheme": "Nord",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.tree.indent": 15,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#22262f",
+    "activityBar.background": "#22262f",
+    "editor.background": "#22262f",
+    "editorGutter.background": "#22262f",
+    "panel.background": "#22262f",
+    "sideBar.background": "#22262f",
+    "statusBar.background": "#22262f",
+    "tab.activeBackground": "#22262f",
+    "titleBar.activeBackground": "#22262f"
+  }
+}
+
