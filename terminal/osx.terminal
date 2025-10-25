@@ -232,7 +232,7 @@ This source code is licensed under the MIT license found in the license file.
 	<string>Window Settings</string>
 	<key>Bell</key>
 	<false />
-	<CursorBlink</key>
+	<key>CursorBlink</key>
 	<true />
 </dict>
 </plist>
