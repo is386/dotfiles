@@ -14,12 +14,9 @@ alias mv="mv -i"
 alias cp="cp -i"
 alias profile="vi ~/.zshrc"
 alias reload="source ~/.zshrc"
-alias open="explorer.exe"
-alias godot="cd /mnt/c/Users/singh/Documents/godot"
 
 # ------------- ENVIRONMENT VARIABLES --------------
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:/snap/bin"
 
 # -------------------- START UP --------------------
 source $ZSH/oh-my-zsh.sh
