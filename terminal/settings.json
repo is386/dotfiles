@@ -1,0 +1,94 @@
+{
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "actions": [],
+  "alwaysShowTabs": false,
+  "centerOnLaunch": true,
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{4dd1e689-b517-5f39-947d-78e8a8bdf958}",
+  "initialCols": 110,
+  "initialRows": 30,
+  "keybindings": [
+    {
+      "id": "Terminal.CopyToClipboard",
+      "keys": "ctrl+c"
+    },
+    {
+      "id": "Terminal.PasteFromClipboard",
+      "keys": "ctrl+v"
+    },
+    {
+      "id": "Terminal.DuplicatePaneAuto",
+      "keys": "alt+shift+d"
+    }
+  ],
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
+  "profiles": {
+    "defaults": {
+      "antialiasingMode": "cleartype",
+      "bellStyle": "none",
+      "colorScheme": "Nord",
+      "cursorShape": "filledBox",
+      "elevate": true,
+      "font": {
+        "face": "Inconsolata",
+        "size": 12,
+        "weight": "normal"
+      }
+    },
+    "list": [
+      {
+        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      },
+      {
+        "commandline": "%SystemRoot%\\System32\\cmd.exe",
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "Command Prompt"
+      },
+      {
+        "guid": "{4dd1e689-b517-5f39-947d-78e8a8bdf958}",
+        "hidden": false,
+        "name": "Ubuntu 20.04.6 LTS",
+        "source": "CanonicalGroupLimited.Ubuntu20.04LTS_79rhkp1fndgsc"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "background": "#22262F",
+      "black": "#22262F",
+      "blue": "#82A2C0",
+      "brightBlack": "#3B4251",
+      "brightBlue": "#82A2C0",
+      "brightCyan": "#8AC0CF",
+      "brightGreen": "#A4BD8E",
+      "brightPurple": "#B38FAC",
+      "brightRed": "#BD626B",
+      "brightWhite": "#E5E9F0",
+      "brightYellow": "#EACA8F",
+      "cursorColor": "#E5E9F0",
+      "cyan": "#8AC0CF",
+      "foreground": "#E5E9F0",
+      "green": "#A4BD8E",
+      "name": "Nord",
+      "purple": "#B38FAC",
+      "red": "#BD626B",
+      "selectionBackground": "#E5E9F0",
+      "white": "#E5E9F0",
+      "yellow": "#EACA8F"
+    }
+  ],
+  "showTabsInTitlebar": false,
+  "showTerminalTitleInTitlebar": true,
+  "themes": [],
+  "windowingBehavior": "useAnyExisting"
+}
