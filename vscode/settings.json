@@ -22,6 +22,8 @@
   "editor.wordWrap": "on",
   "editor.lineNumbers": "on",
   "editor.glyphMargin": true,
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
   "editor.occurrencesHighlight": "off",
 
   // Explorer
@@ -57,6 +59,26 @@
     "statusBar.background": "#22262f",
     "tab.activeBackground": "#22262f",
     "titleBar.activeBackground": "#22262f"
-  }
-}
+  },
 
+  // Vim
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["<Up>"], "after": [] },
+    { "before": ["<Down>"], "after": [] },
+    { "before": ["<Left>"], "after": [] },
+    { "before": ["<Right>"], "after": [] }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    { "before": ["<Up>"], "after": [] },
+    { "before": ["<Down>"], "after": [] },
+    { "before": ["<Left>"], "after": [] },
+    { "before": ["<Right>"], "after": [] }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["<Up>"], "after": [] },
+    { "before": ["<Down>"], "after": [] },
+    { "before": ["<Left>"], "after": [] },
+    { "before": ["<Right>"], "after": [] }
+  ]
+}
