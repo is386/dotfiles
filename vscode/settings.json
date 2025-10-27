@@ -62,12 +62,23 @@
   },
 
   // Vim
-  "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     { "before": ["<Up>"], "after": [] },
     { "before": ["<Down>"], "after": [] },
     { "before": ["<Left>"], "after": [] },
-    { "before": ["<Right>"], "after": [] }
+    { "before": ["<Right>"], "after": [] },
+
+    // H/L -> end/start of line
+    { "before": ["L"], "after": ["$"] },
+    { "before": ["H"], "after": ["^"] },
+
+    // -/+ -> top/bottom of screen
+    { "before": ["-"], "after": ["H"] },
+    { "before": ["="], "after": ["L"] },
+
+    // $/0 -> up/down one line
+    { "before": ["$"], "after": ["-"] },
+    { "before": ["0"], "after": ["+"] }
   ],
   "vim.insertModeKeyBindingsNonRecursive": [
     { "before": ["<Up>"], "after": [] },
@@ -75,6 +86,7 @@
     { "before": ["<Left>"], "after": [] },
     { "before": ["<Right>"], "after": [] }
   ],
+  "vim.insertModeKeyBindings": [{ "before": ["j", "j"], "after": ["<Esc>"] }],
   "vim.visualModeKeyBindingsNonRecursive": [
     { "before": ["<Up>"], "after": [] },
     { "before": ["<Down>"], "after": [] },
