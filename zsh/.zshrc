@@ -20,5 +20,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # -------------------- START UP --------------------
 source $ZSH/oh-my-zsh.sh
+plugins=(... git)
 clear
 
