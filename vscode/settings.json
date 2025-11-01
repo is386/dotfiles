@@ -33,13 +33,6 @@
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.hidesExplorerArrows": true,
 
-  // Files
-  "files.exclude": {
-    "**/*.uid": true,
-    "**/*.import": true,
-    "**/*.tscn": true
-  },
-
   // Security
   "security.workspace.trust.untrustedFiles": "open",
 
