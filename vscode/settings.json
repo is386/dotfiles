@@ -3,6 +3,7 @@
   "breadcrumbs.enabled": false,
 
   // Editor
+  "editor.lightbulb.enabled": "off",
   "editor.fontFamily": "Inconsolata",
   "editor.fontSize": 16,
   "editor.lineHeight": 25,
@@ -28,9 +29,42 @@
   // Explorer
   "explorer.compactFolders": false,
 
-  // Material Icons
+  // Extensions
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.hidesExplorerArrows": true,
+
+  // Files
+  "files.exclude": {
+    "**/*.uid": true,
+    "**/*.import": true,
+    "**/*.tscn": true
+  },
+
+  // Security
+  "security.workspace.trust.untrustedFiles": "open",
+
+  // Workbench
+  "workbench.statusBar.visible": false,
+  "workbench.settings.editor": "json",
+  "workbench.colorTheme": "Nord",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.tree.indent": 15,
+  "workbench.activityBar.location": "hidden",
+  "workbench.layoutControl.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#22262f",
+    "activityBar.background": "#22262f",
+    "editor.background": "#22262f",
+    "editorGutter.background": "#22262f",
+    "panel.background": "#22262f",
+    "sideBar.background": "#22262f",
+    "statusBar.background": "#22262f",
+    "tab.activeBackground": "#22262f",
+    "titleBar.activeBackground": "#22262f"
+  },
 
   // Vim
   "vim.useSystemClipboard": true,
@@ -58,28 +92,5 @@
 
   // Window
   "window.menuBarVisibility": "compact",
-  "window.commandCenter": false,
-
-  // Workbench
-  "workbench.statusBar.visible": false,
-  "workbench.settings.editor": "json",
-  "workbench.colorTheme": "Nord",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "none",
-  "workbench.tree.renderIndentGuides": "always",
-  "workbench.tree.indent": 15,
-  "workbench.activityBar.location": "hidden",
-  "workbench.layoutControl.enabled": false,
-  "workbench.navigationControl.enabled": false,
-  "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#22262f",
-    "activityBar.background": "#22262f",
-    "editor.background": "#22262f",
-    "editorGutter.background": "#22262f",
-    "panel.background": "#22262f",
-    "sideBar.background": "#22262f",
-    "statusBar.background": "#22262f",
-    "tab.activeBackground": "#22262f",
-    "titleBar.activeBackground": "#22262f"
-  }
+  "window.commandCenter": false
 }
