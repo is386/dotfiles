@@ -1,0 +1,18 @@
+[
+  {
+    "key": "ctrl+1",
+    "command": "workbench.action.focusPreviousGroup"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "workbench.action.focusNextGroup"
+  },
+  {
+    "key": "ctrl+shift+1",
+    "command": "workbench.action.moveEditorToPreviousGroup"
+  },
+  {
+    "key": "ctrl+shift+2",
+    "command": "workbench.action.moveEditorToNextGroup"
+  }
+]

@@ -12,10 +12,8 @@ PROMPT+=" ${NEWLINE}→ "
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
-alias profile="vi ~/.zshrc"
+alias profile="code ~/.zshrc"
 alias reload="source ~/.zshrc"
-alias vi="nvim"
-alias vim="nvim"
 
 # ------------- ENVIRONMENT VARIABLES --------------
 export ZSH="$HOME/.oh-my-zsh"
