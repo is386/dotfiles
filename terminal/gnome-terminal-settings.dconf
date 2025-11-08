@@ -1,0 +1,18 @@
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+background-color='rgb(34,38,47)'
+bold-color-same-as-fg=true
+bold-is-bright=false
+cursor-colors-set=false
+cursor-shape='ibeam'
+default-size-columns=110
+default-size-rows=30
+font='Inconsolata 14'
+foreground-color='rgb(216,222,233)'
+highlight-background-color='rgb(216,222,233)'
+highlight-colors-set=true
+highlight-foreground-color='rgb(34,38,47)'
+palette=['rgb(34,38,47)', 'rgb(191,97,106)', 'rgb(163,190,140)', 'rgb(235,203,139)', 'rgb(129,161,193)', 'rgb(180,142,173)', 'rgb(143,188,187)', 'rgb(216,222,233)', 'rgb(34,38,47)', 'rgb(191,97,106)', 'rgb(163,190,140)', 'rgb(235,203,139)', 'rgb(129,161,193)', 'rgb(180,142,173)', 'rgb(143,188,187)', 'rgb(216,222,233)']
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
