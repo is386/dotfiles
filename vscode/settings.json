@@ -3,28 +3,29 @@
   "breadcrumbs.enabled": false,
 
   // Editor
-  "editor.lightbulb.enabled": "off",
-  "editor.fontFamily": "Inconsolata",
-  "editor.fontSize": 16,
-  "editor.lineHeight": 25,
-  "editor.stickyScroll.enabled": false,
-  "editor.selectionHighlight": false,
-  "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
-  "editor.tabSize": 2,
   "editor.bracketPairColorization.enabled": false,
-  "editor.formatOnType": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "phase",
-  "editor.wordWrap": "on",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "Inconsolata",
+  "editor.fontSize": 16,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": false,
+  "editor.glyphMargin": true,
+  "editor.lightbulb.enabled": "off",
+  "editor.lineHeight": 25,
   "editor.lineNumbers": "on",
-  "editor.autoClosingBrackets": "never",
-  "editor.autoClosingQuotes": "never",
+  "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": "off",
+  "editor.renderWhitespace": "none",
+  "editor.selectionHighlight": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
 
   // Explorer
   "explorer.compactFolders": false,
@@ -37,16 +38,7 @@
   "security.workspace.trust.untrustedFiles": "open",
 
   // Workbench
-  "workbench.statusBar.visible": false,
-  "workbench.settings.editor": "json",
-  "workbench.colorTheme": "Nord",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "none",
-  "workbench.tree.renderIndentGuides": "always",
-  "workbench.tree.indent": 15,
   "workbench.activityBar.location": "hidden",
-  "workbench.layoutControl.enabled": false,
-  "workbench.navigationControl.enabled": false,
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#22262f",
     "activityBar.background": "#22262f",
@@ -58,6 +50,15 @@
     "tab.activeBackground": "#22262f",
     "titleBar.activeBackground": "#22262f"
   },
+  "workbench.colorTheme": "Nord",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.layoutControl.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "workbench.settings.editor": "json",
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.visible": false,
+  "workbench.tree.indent": 15,
+  "workbench.tree.renderIndentGuides": "always",
 
   // Vim
   "vim.useSystemClipboard": true,
@@ -84,7 +85,7 @@
   ],
 
   // Window
-  "window.menuBarVisibility": "compact",
   "window.commandCenter": false,
+  "window.menuBarVisibility": "compact",
   "window.title": "${activeEditorMedium}"
 }
