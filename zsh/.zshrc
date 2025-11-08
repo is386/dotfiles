@@ -19,7 +19,6 @@ alias reload="source ~/.zshrc"
 export ZSH="$HOME/.oh-my-zsh"
 
 # -------------------- START UP --------------------
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
-plugins=(... git)
 clear
-
