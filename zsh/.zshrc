@@ -1,4 +1,21 @@
 
+# -------------------- FUNCTIONS -------------------
+gpla() {
+  local owner="is386"
+  echo "Fetching repo list for owner: $owner"
+  gh repo list "$owner" --limit 500 --json name,sshUrl --jq '.[] | "\(.name) \(.sshUrl)"' |
+  while IFS=' ' read -r name sshUrl; do
+    if [ -d "$name/.git" ]; then
+      echo "==> [$name] exists — pulling updates"
+      ( cd "$name" && git pull )
+    else
+      echo "==> [$name] not found — cloning $sshUrl"
+      git clone "$sshUrl" "$name"
+    fi
+  done
+}
+
+
 # ------------------ CUSTOM PROMPT -----------------
 autoload -Uz vcs_info
 precmd() { vcs_info }
