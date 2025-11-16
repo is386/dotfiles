@@ -87,5 +87,4 @@
   // Window
   "window.commandCenter": false,
   "window.menuBarVisibility": "compact",
-  "window.title": "${activeEditorMedium}"
 }
