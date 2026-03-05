@@ -21,7 +21,7 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '[%b]'
 NEWLINE=$'\n'
-PROMPT="${NEWLINE}%F{blue}%n%f %F{green}%~%f"
+PROMPT="${NEWLINE}%F{blue}%n%f %F{green}%(5~|…/%3~|%~)%f"
 PROMPT+=' %F{cyan}${vcs_info_msg_0_}%f'
 PROMPT+=" ${NEWLINE}→ "
 
