@@ -1,0 +1,10 @@
+theme = Nord
+background = #22262F
+font-family = Inconsolata
+font-thicken = true
+font-thicken-strength = 50
+shell-integration = zsh
+font-size = 18
+cursor-style = bar
+cursor-style-blink = true
+macos-titlebar-proxy-icon = hidden
