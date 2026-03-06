@@ -16,7 +16,7 @@
   "editor.formatOnType": false,
   "editor.glyphMargin": true,
   "editor.lightbulb.enabled": "off",
-  "editor.lineHeight": 25,
+  "editor.lineHeight": 23,
   "editor.lineNumbers": "on",
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": "off",
