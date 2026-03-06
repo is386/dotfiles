@@ -33,13 +33,15 @@
       "antialiasingMode": "cleartype",
       "bellStyle": "none",
       "colorScheme": "Nord",
-      "cursorShape": "filledBox",
+      "cursorShape": "bar",
       "elevate": true,
       "font": {
+        "cellHeight": "1.55",
         "face": "Inconsolata",
         "size": 12,
         "weight": "normal"
-      }
+      },
+      "icon": "\ue700"
     },
     "list": [
       {
@@ -89,6 +91,7 @@
   ],
   "showTabsInTitlebar": false,
   "showTerminalTitleInTitlebar": true,
+  "theme": "system",
   "themes": [],
   "windowingBehavior": "useAnyExisting"
 }
