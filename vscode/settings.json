@@ -5,7 +5,7 @@
   // Editor
   "editor.bracketPairColorization.enabled": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
+    "source.fixAll": "always"
   },
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -60,31 +60,8 @@
   "workbench.tree.indent": 15,
   "workbench.tree.renderIndentGuides": "always",
 
-  // Vim
-  "vim.useSystemClipboard": true,
-  "vim.insertModeKeyBindings": [{ "before": ["j", "j"], "after": ["<Esc>"] }],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    { "before": ["<Up>"], "after": [] },
-    { "before": ["<Down>"], "after": [] },
-    { "before": ["<Left>"], "after": [] },
-    { "before": ["<Right>"], "after": [] },
-    { "before": ["^"], "after": ["0"] },
-    { "before": ["0"], "after": ["^"] }
-  ],
-  "vim.insertModeKeyBindingsNonRecursive": [
-    { "before": ["<Up>"], "after": [] },
-    { "before": ["<Down>"], "after": [] },
-    { "before": ["<Left>"], "after": [] },
-    { "before": ["<Right>"], "after": [] }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    { "before": ["<Up>"], "after": [] },
-    { "before": ["<Down>"], "after": [] },
-    { "before": ["<Left>"], "after": [] },
-    { "before": ["<Right>"], "after": [] }
-  ],
-
   // Window
   "window.commandCenter": false,
   "window.menuBarVisibility": "compact",
+  "window.title": "${activeEditorMedium}"
 }
