@@ -1,6 +1,5 @@
-
 # -------------------- FUNCTIONS -------------------
-gpla() {
+gla() {
   local owner="is386"
   echo "Fetching repo list for owner: $owner"
   gh repo list "$owner" --limit 500 --json name,sshUrl --jq '.[] | "\(.name) \(.sshUrl)"' |
@@ -15,7 +14,6 @@ gpla() {
   done
 }
 
-
 # ------------------ CUSTOM PROMPT -----------------
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -29,13 +27,18 @@ PROMPT+=" ${NEWLINE}→ "
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
-alias profile="code ~/.zshrc"
+alias cat="batcat"
+alias vim="nvim"
+alias vi="nvim"
+alias profile="vi ~/.zshrc"
 alias reload="source ~/.zshrc"
 
 # ------------- ENVIRONMENT VARIABLES --------------
 export ZSH="$HOME/.oh-my-zsh"
 
 # -------------------- START UP --------------------
+# ZSH
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+
 clear
