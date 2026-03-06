@@ -36,7 +36,7 @@
       "cursorShape": "bar",
       "elevate": true,
       "font": {
-        "cellHeight": "1.55",
+        "cellHeight": "1.45",
         "face": "Inconsolata",
         "size": 12,
         "weight": "normal"
