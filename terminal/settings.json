@@ -1,97 +1,200 @@
 {
-  "$help": "https://aka.ms/terminal-documentation",
-  "$schema": "https://aka.ms/terminal-profiles-schema",
-  "actions": [],
-  "alwaysShowTabs": false,
-  "centerOnLaunch": true,
-  "copyFormatting": "none",
-  "copyOnSelect": false,
-  "defaultProfile": "{4dd1e689-b517-5f39-947d-78e8a8bdf958}",
-  "initialCols": 110,
-  "initialRows": 30,
-  "keybindings": [
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
+    "alwaysShowTabs": false,
+    "centerOnLaunch": true,
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{4dd1e689-b517-5f39-947d-78e8a8bdf958}",
+    "initialCols": 110,
+    "initialRows": 30,
+    "keybindings": 
+    [
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "id": "Terminal.OpenNewTab",
+            "keys": "ctrl+t"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "Terminal.SwitchToTab1",
+            "keys": "ctrl+2"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+6"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+t"
+        },
+        {
+            "id": "Terminal.SwitchToTab0",
+            "keys": "ctrl+1"
+        },
+        {
+            "id": "Terminal.SwitchToTab5",
+            "keys": "ctrl+6"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+9"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+2"
+        },
+        {
+            "id": "Terminal.SwitchToTab2",
+            "keys": "ctrl+3"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+3"
+        },
+        {
+            "id": "Terminal.SwitchToTab3",
+            "keys": "ctrl+4"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+7"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+4"
+        },
+        {
+            "id": "Terminal.SwitchToTab4",
+            "keys": "ctrl+5"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+5"
+        },
+        {
+            "id": "Terminal.SwitchToTab6",
+            "keys": "ctrl+7"
+        },
+        {
+            "id": "Terminal.SwitchToTab7",
+            "keys": "ctrl+8"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+8"
+        },
+        {
+            "id": "Terminal.SwitchToLastTab",
+            "keys": "ctrl+9"
+        },
+        {
+            "id": "Terminal.ClosePane",
+            "keys": "ctrl+w"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": "Terminal.ClearBuffer",
+            "keys": "ctrl+k"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
     {
-      "id": "Terminal.CopyToClipboard",
-      "keys": "ctrl+c"
+        "defaults": 
+        {
+            "antialiasingMode": "cleartype",
+            "bellStyle": "none",
+            "colorScheme": "Nord",
+            "cursorShape": "bar",
+            "elevate": true,
+            "font": 
+            {
+                "cellHeight": "1.45",
+                "face": "Inconsolata",
+                "size": 12,
+                "weight": "normal"
+            },
+            "icon": "\ue700"
+        },
+        "list": 
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{4dd1e689-b517-5f39-947d-78e8a8bdf958}",
+                "hidden": false,
+                "name": "Ubuntu 20.04.6 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu20.04LTS_79rhkp1fndgsc"
+            }
+        ]
     },
-    {
-      "id": "Terminal.PasteFromClipboard",
-      "keys": "ctrl+v"
-    },
-    {
-      "id": "Terminal.DuplicatePaneAuto",
-      "keys": "alt+shift+d"
-    }
-  ],
-  "newTabMenu": [
-    {
-      "type": "remainingProfiles"
-    }
-  ],
-  "profiles": {
-    "defaults": {
-      "antialiasingMode": "cleartype",
-      "bellStyle": "none",
-      "colorScheme": "Nord",
-      "cursorShape": "bar",
-      "elevate": true,
-      "font": {
-        "cellHeight": "1.45",
-        "face": "Inconsolata",
-        "size": 12,
-        "weight": "normal"
-      },
-      "icon": "\ue700"
-    },
-    "list": [
-      {
-        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-        "hidden": false,
-        "name": "Windows PowerShell"
-      },
-      {
-        "commandline": "%SystemRoot%\\System32\\cmd.exe",
-        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "hidden": false,
-        "name": "Command Prompt"
-      },
-      {
-        "guid": "{4dd1e689-b517-5f39-947d-78e8a8bdf958}",
-        "hidden": false,
-        "name": "Ubuntu 20.04.6 LTS",
-        "source": "CanonicalGroupLimited.Ubuntu20.04LTS_79rhkp1fndgsc"
-      }
-    ]
-  },
-  "schemes": [
-    {
-      "background": "#22262F",
-      "black": "#22262F",
-      "blue": "#82A2C0",
-      "brightBlack": "#3B4251",
-      "brightBlue": "#82A2C0",
-      "brightCyan": "#8AC0CF",
-      "brightGreen": "#A4BD8E",
-      "brightPurple": "#B38FAC",
-      "brightRed": "#BD626B",
-      "brightWhite": "#E5E9F0",
-      "brightYellow": "#EACA8F",
-      "cursorColor": "#E5E9F0",
-      "cyan": "#8AC0CF",
-      "foreground": "#E5E9F0",
-      "green": "#A4BD8E",
-      "name": "Nord",
-      "purple": "#B38FAC",
-      "red": "#BD626B",
-      "selectionBackground": "#E5E9F0",
-      "white": "#E5E9F0",
-      "yellow": "#EACA8F"
-    }
-  ],
-  "showTabsInTitlebar": false,
-  "showTerminalTitleInTitlebar": true,
-  "theme": "system",
-  "themes": [],
-  "windowingBehavior": "useAnyExisting"
+    "schemes": 
+    [
+        {
+            "background": "#22262F",
+            "black": "#22262F",
+            "blue": "#82A2C0",
+            "brightBlack": "#3B4251",
+            "brightBlue": "#82A2C0",
+            "brightCyan": "#8AC0CF",
+            "brightGreen": "#A4BD8E",
+            "brightPurple": "#B38FAC",
+            "brightRed": "#BD626B",
+            "brightWhite": "#E5E9F0",
+            "brightYellow": "#EACA8F",
+            "cursorColor": "#E5E9F0",
+            "cyan": "#8AC0CF",
+            "foreground": "#E5E9F0",
+            "green": "#A4BD8E",
+            "name": "Nord",
+            "purple": "#B38FAC",
+            "red": "#BD626B",
+            "selectionBackground": "#E5E9F0",
+            "white": "#E5E9F0",
+            "yellow": "#EACA8F"
+        }
+    ],
+    "showTabsInTitlebar": false,
+    "showTerminalTitleInTitlebar": true,
+    "theme": "system",
+    "themes": [],
+    "windowingBehavior": "useAnyExisting"
 }
