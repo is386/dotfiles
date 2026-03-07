@@ -16,11 +16,22 @@ gla() {
 
 # ------------------ CUSTOM PROMPT -----------------
 autoload -Uz vcs_info
-precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats '[%b]'
+precmd() {
+  vcs_info
+  if [[ -n ${vcs_info_msg_0_} ]]; then
+    local remote_url
+    remote_url=$(git remote get-url origin 2>/dev/null)
+    remote_url=${remote_url/git@github.com:/https://github.com/}
+    remote_url=${remote_url%.git}
+    branch_display="%{$(echo -n "\e]8;;${remote_url}\e\\")%}[${vcs_info_msg_0_}]%{$(echo -n "\e]8;;\e\\")%}"
+  else
+    branch_display=""
+  fi
+}
+zstyle ':vcs_info:git:*' formats '%b'
 NEWLINE=$'\n'
 PROMPT="${NEWLINE}%F{blue}%n%f %F{green}%(5~|…/%3~|%~)%f"
-PROMPT+=' %F{cyan}${vcs_info_msg_0_}%f'
+PROMPT+=' %F{cyan}${branch_display}%f'
 PROMPT+=" ${NEWLINE}→ "
 
 # --------------------- ALIASES --------------------
