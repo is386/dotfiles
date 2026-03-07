@@ -45,6 +45,7 @@ alias profile="vi ~/.zshrc"
 alias reload="source ~/.zshrc"
 alias repos="cd ~/repos/"
 alias ai="cd ~/ai-sandbox/"
+alias nconf="cd ~/.config/nvim"
 
 # ------------- ENVIRONMENT VARIABLES --------------
 export ZSH="$HOME/.oh-my-zsh"
