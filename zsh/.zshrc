@@ -16,7 +16,7 @@ gla() {
 
 # ------------------ CUSTOM PROMPT -----------------
 autoload -Uz vcs_info
-precmd() {
+_set_branch_display() {
   vcs_info
   if [[ -n ${vcs_info_msg_0_} ]]; then
     local remote_url
@@ -28,6 +28,8 @@ precmd() {
     branch_display=""
   fi
 }
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _set_branch_display
 zstyle ':vcs_info:git:*' formats '%b'
 NEWLINE=$'\n'
 PROMPT="${NEWLINE}%F{blue}%n%f %F{green}%(5~|…/%3~|%~)%f"
