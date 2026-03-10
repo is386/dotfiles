@@ -1,11 +1,21 @@
 theme = Nord
 background = #22262F
+font-size = 16
 font-family = Inconsolata
 font-thicken = true
 font-thicken-strength = 50
-shell-integration = zsh
-font-size = 16
 adjust-cell-height = 6
 cursor-style = bar
 cursor-style-blink = true
 macos-titlebar-proxy-icon = hidden
+shell-integration = zsh
+
+keybind = super+up=goto_split:top
+keybind = super+down=goto_split:bottom
+keybind = super+left=goto_split:left
+keybind = super+right=goto_split:right
+keybind = super+shift+up=resize_split:up,50
+keybind = super+shift+down=resize_split:down,50
+keybind = super+shift+left=resize_split:left,50
+keybind = super+shift+right=resize_split:right,50
+
