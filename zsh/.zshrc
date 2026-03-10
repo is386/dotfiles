@@ -51,6 +51,7 @@ alias ai="cd ~/ai-sandbox/"
 alias nconf="cd ~/.config/nvim"
 
 # ------------- ENVIRONMENT VARIABLES --------------
+export COLORTERM=truecolor
 export ZSH="$HOME/.oh-my-zsh"
 
 # -------------------- START UP --------------------
