@@ -1,0 +1,4 @@
+Host galaxygate
+    HostName 162.248.100.248
+    User root
+    Port 2234
