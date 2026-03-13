@@ -115,7 +115,7 @@
       "keys": "ctrl+shift+w"
     },
     {
-      "id": "Terminal.ClearBuffer",
+      "id": null,
       "keys": "ctrl+k"
     },
     {
@@ -128,19 +128,19 @@
     },
     {
       "id": "Terminal.MoveFocusUp",
-      "keys": "ctrl+up"
+      "keys": "ctrl+k"
     },
     {
       "id": "Terminal.MoveFocusDown",
-      "keys": "ctrl+down"
+      "keys": "ctrl+j"
     },
     {
       "id": "Terminal.MoveFocusLeft",
-      "keys": "ctrl+left"
+      "keys": "ctrl+h"
     },
     {
       "id": "Terminal.MoveFocusRight",
-      "keys": "ctrl+right"
+      "keys": "ctrl+l"
     },
     {
       "id": "Terminal.ResizePaneUp",
