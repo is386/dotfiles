@@ -40,6 +40,26 @@ PROMPT="${NEWLINE}%F{blue}%n%f %F{green}%(5~|…/%3~|%~)%f"
 PROMPT+=' %F{cyan}${branch_display}%f'
 PROMPT+=" ${NEWLINE}→ "
 
+# ENVIRONMENT VARIABLES 
+export COLORTERM=truecolor
+export CLICOLOR=1
+export LS_COLORS='di=36:ln=35:so=32:ex=31:bd=34;46:cd=34;43:su=30;46:tw=30;42:ow=30;43'
+
+# ALIASES 
+alias vim="nvim"
+alias vi="nvim"
+alias ls="ls --color=auto"
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+alias bat="$(command -v batcat &> /dev/null && echo batcat || echo bat) --theme=Nord"
+alias cat="bat -p"
+alias reload="clear && source ~/.zshrc"
+alias profile="vi ~/.zshrc"
+alias nconf="cd ~/.config/nvim"
+alias ai="cd ~/ai-sandbox/"
+alias repos="cd ~/repos"
+
 # HISTORY
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -65,29 +85,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# ALIASES 
-alias vim="nvim"
-alias vi="nvim"
-alias ls="ls --color=auto"
-alias rm="rm -i"
-alias mv="mv -i"
-alias cp="cp -i"
-alias bat="$(command -v batcat &> /dev/null && echo batcat || echo bat) --theme=Nord"
-alias cat="bat -p"
-alias reload="clear && source ~/.zshrc"
-alias profile="vi ~/.zshrc"
-alias nconf="cd ~/.config/nvim"
-alias ai="cd ~/ai-sandbox/"
-alias repos="cd ~/repos"
-
-# ENVIRONMENT VARIABLES 
-export COLORTERM=truecolor
-export CLICOLOR=1
-export LS_COLORS='di=36:ln=35:so=32:ex=31:bd=34;46:cd=34;43:su=30;46:tw=30;42:ow=30;43'
-
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # MISE
 eval "$(~/.local/bin/mise activate zsh --shims)"
-
