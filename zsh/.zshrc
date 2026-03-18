@@ -50,6 +50,8 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+bindkey '^[OA' history-search-backward
+bindkey '^[OB' history-search-forward
 
 # COMPLETIONS
 fpath=(~/.zsh/completions, $fpath)
