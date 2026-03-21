@@ -1,4 +1,4 @@
-# FUNCTIONS 
+# Functions
 gla() {
   local owner="is386"
   echo "Fetching repo list for owner: $owner"
@@ -14,78 +14,82 @@ gla() {
   done
 }
 
-# CUSTOM PROMPT 
-setopt PROMPT_SUBST
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats '%b'
-_set_branch_display() {
-  vcs_info
-  if [[ -n ${vcs_info_msg_0_} ]]; then
-    if [[ "$PWD" != "$_last_get_dir" ]]; then
-      _last_git_dir="$PWD"
-      _cached_remote_url=$(git remote get-url origin 2>/dev/null)
-      _cached_remote_url=${_cached_remote_url/git@github.com:/https://github.com/}
-      _cached_remote_url=${_cached_remote_url%.git}
-    fi
-    branch_display="%{$(echo -n "\e]8_;;${_cached_remote_url}\e\\")%}[${vcs_info_msg_0_}]%{$(echo -n "\e]8;;\e\\")%}"
-  else
-    branch_display=""
-    _last_git_dir=""
-  fi
-}
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd _set_branch_display
-NEWLINE=$'\n'
-PROMPT="${NEWLINE}%F{blue}%n%f %F{green}%(5~|…/%3~|%~)%f"
-PROMPT+=' %F{cyan}${branch_display}%f'
-PROMPT+=" ${NEWLINE}→ "
+# Powerlevel10k Transient Prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# HISTORY
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_FIND_NO_DUPS
+# Zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+	mkdir -p "$(dirname $ZINIT_HOME)"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Zstyle
+zstyle ':completion:*' menu no
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Keybinds
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+bindkey '^[OA' history-search-backward
+bindkey '^[OB' history-search-forward
 
-# COMPLETIONS
-fpath=(~/.zsh/completions, $fpath)
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Misc Options
+setopt globdots
+setopt ignoreeof
+
+# Aliases
+alias bat="batcat --theme=Nord"
+alias cat="bat -p"
+alias cp="cp -i"
+alias ls="ls --color"
+alias mv="mv -i"
+alias open="explorer.exe"
+alias profile="vi ~/.zshrc"
+alias reload="source ~/.zshrc"
+alias rm="rm -i"
+alias vi="nvim"
+alias vim="nvim"
+
+alias nconf="cd ~/.config/nvim"
+alias repos="cd ~/repos"
+
+# Exports
+export COLORTERM=truecolor
+
+# Shell Integrations
+eval "$(~/.local/bin/mise activate zsh --shims)"
+source <(fzf --zsh)
+
+# Plugins
+zinit ice wait lucid; zinit light Aloxaf/fzf-tab
+
+zinit snippet OMZP::git
+
+zinit ice wait lucid; zinit light zsh-users/zsh-completions
+fpath=(~/.zsh/completions $fpath)
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
   compinit
 else
   compinit -C
 fi
-zstyle ':completion:*' menu select
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# ALIASES 
-alias vim="nvim"
-alias vi="nvim"
-alias ls="ls --color=auto"
-alias rm="rm -i"
-alias mv="mv -i"
-alias cp="cp -i"
-alias bat="$(command -v batcat &> /dev/null && echo batcat || echo bat) --theme=Nord"
-alias cat="bat -p"
-alias reload="clear && source ~/.zshrc"
-alias profile="vi ~/.zshrc"
-alias nconf="cd ~/.config/nvim"
-alias ai="cd ~/ai-sandbox/"
-alias repos="cd ~/repos"
-
-# ENVIRONMENT VARIABLES 
-export COLORTERM=truecolor
-export CLICOLOR=1
-export LS_COLORS='di=36:ln=35:so=32:ex=31:bd=34;46:cd=34;43:su=30;46:tw=30;42:ow=30;43'
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# MISE
-eval "$(~/.local/bin/mise activate zsh --shims)"
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
