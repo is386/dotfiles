@@ -84,6 +84,7 @@ setopt ignoreeof
 # Aliases
 alias bat="batcat --theme=Nord"
 alias cat="bat -p"
+alias cd="z"
 alias cp="cp -i"
 alias ls="ls --color"
 alias mv="mv -i"
@@ -104,4 +105,6 @@ export COLORTERM=truecolor
 eval "$(~/.local/bin/mise activate zsh --shims)"
 
 source <(fzf --zsh)
+
+eval "$(zoxide init zsh)"
 
