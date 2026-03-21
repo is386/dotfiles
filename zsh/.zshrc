@@ -14,7 +14,6 @@ gla() {
   done
 }
 
-
 # Plugins
 ZSH_PLUGINS="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 
@@ -99,5 +98,6 @@ export COLORTERM=truecolor
 
 # Shell Integrations
 eval "$(~/.local/bin/mise activate zsh --shims)"
+
 source <(fzf --zsh)
 
