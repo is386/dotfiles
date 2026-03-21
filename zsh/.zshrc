@@ -14,22 +14,45 @@ gla() {
   done
 }
 
-# Powerlevel10k Transient Prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
-# Zinit
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-if [ ! -d "$ZINIT_HOME" ]; then
-	mkdir -p "$(dirname $ZINIT_HOME)"
-	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-source "${ZINIT_HOME}/zinit.zsh"
+# Plugins
+ZSH_PLUGINS="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 
-# Zstyle
+if [ ! -d "$ZSH_PLUGINS/zsh-completions" ]; then
+  mkdir -p "$ZSH_PLUGINS"
+  git clone https://github.com/zsh-users/zsh-completions.git "$ZSH_PLUGINS/zsh-completions"
+fi
+fpath=($ZSH_PLUGINS/zsh-completions/src ~/.zsh/completions $fpath)
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 zstyle ':completion:*' menu no
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+if [ ! -d "$ZSH_PLUGINS/fzf-tab" ]; then
+  mkdir -p "$ZSH_PLUGINS"
+  git clone https://github.com/Aloxaf/fzf-tab.git "$ZSH_PLUGINS/fzf-tab"
+fi
+source "$ZSH_PLUGINS/fzf-tab/fzf-tab.plugin.zsh"
+
+# Prompt
+autoload -Uz add-zsh-hook vcs_info
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' formats ' %F{6}[%b]%f'
+zstyle ':vcs_info:*' actionformats ' %F{6}[%b|%a]%f'
+
+_lean_precmd() { vcs_info }
+add-zsh-hook precmd _lean_precmd
+setopt prompt_subst
+
+PROMPT='
+%F{4}%n%f %F{2}%4(~|…/%3~|%~)%f${vcs_info_msg_0_}
+%F{5}→%f '
+RPROMPT=''
 
 # Keybinds
 bindkey '^[[A' history-search-backward
@@ -66,6 +89,8 @@ alias rm="rm -i"
 alias vi="nvim"
 alias vim="nvim"
 
+alias ai="cd ~/ai-sandbox/"
+alias godot="cd /mnt/c/Users/singh/Documents/godot"
 alias nconf="cd ~/.config/nvim"
 alias repos="cd ~/repos"
 
@@ -75,21 +100,4 @@ export COLORTERM=truecolor
 # Shell Integrations
 eval "$(~/.local/bin/mise activate zsh --shims)"
 source <(fzf --zsh)
-
-# Plugins
-zinit ice wait lucid; zinit light Aloxaf/fzf-tab
-
-zinit snippet OMZP::git
-
-zinit ice wait lucid; zinit light zsh-users/zsh-completions
-fpath=(~/.zsh/completions $fpath)
-autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-  compinit
-else
-  compinit -C
-fi
-
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
