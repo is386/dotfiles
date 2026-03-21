@@ -37,6 +37,12 @@ if [ ! -d "$ZSH_PLUGINS/fzf-tab" ]; then
 fi
 source "$ZSH_PLUGINS/fzf-tab/fzf-tab.plugin.zsh"
 
+if [ ! -d "$ZSH_PLUGINS/zsh-vi-mode" ]; then
+  mkdir -p "$ZSH_PLUGINS"
+  git clone https://github.com/jeffreytse/zsh-vi-mode "$ZSH_PLUGINS/zsh-vi-mode"
+fi
+source "$ZSH_PLUGINS/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+
 # Prompt
 autoload -Uz add-zsh-hook vcs_info
 
@@ -88,8 +94,6 @@ alias rm="rm -i"
 alias vi="nvim"
 alias vim="nvim"
 
-alias ai="cd ~/ai-sandbox/"
-alias godot="cd /mnt/c/Users/singh/Documents/godot"
 alias nconf="cd ~/.config/nvim"
 alias repos="cd ~/repos"
 
