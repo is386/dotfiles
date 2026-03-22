@@ -59,12 +59,6 @@ PROMPT='
 %F{5}→%f '
 RPROMPT=''
 
-# Keybinds
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
-bindkey '^[OA' history-search-backward
-bindkey '^[OB' history-search-forward
-
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -95,16 +89,19 @@ alias rm="rm -i"
 alias vi="nvim"
 alias vim="nvim"
 
-alias nconf="cd ~/.config/nvim"
-alias repos="cd ~/repos"
-
 # Exports
 export COLORTERM=truecolor
 
 # Shell Integrations
 eval "$(~/.local/bin/mise activate zsh --shims)"
 
-source <(fzf --zsh)
-
 eval "$(zoxide init zsh)"
+
+zvm_after_init() {
+  source <(fzf --zsh)
+  bindkey '^[[A' history-search-backward
+  bindkey '^[[B' history-search-forward
+  bindkey '^[OA' history-search-backward
+  bindkey '^[OB' history-search-forward
+}
 
