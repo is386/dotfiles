@@ -15,8 +15,8 @@ pct=${used_pct:-0}
 filled=$(echo "$pct" | awk '{printf "%d", ($1 / 100 * 12 + 0.5)}')
 empty=$((12 - filled))
 bar_inner=""
-for i in $(seq 1 "$filled"); do bar_inner="${bar_inner}▰"; done
-for i in $(seq 1 "$empty");  do bar_inner="${bar_inner}▱"; done
+for i in $(seq 1 "$filled"); do bar_inner="${bar_inner}■"; done
+for i in $(seq 1 "$empty");  do bar_inner="${bar_inner}□"; done
 pct_int=$(echo "$pct" | awk '{printf "%d", $1}')
 bar="${bar_inner} ${pct_int}%"
 
