@@ -76,21 +76,17 @@ setopt globdots
 setopt ignoreeof
 
 # Aliases
-alias bat="batcat --theme=Nord"
+alias bat="bat --theme=Nord"
 alias cat="bat -p"
 alias cd="z"
 alias cp="cp -i"
 alias ls="ls --color"
 alias mv="mv -i"
-alias open="explorer.exe"
 alias profile="vi ~/.zshrc"
 alias reload="source ~/.zshrc"
 alias rm="rm -i"
 alias vi="nvim"
 alias vim="nvim"
-
-# Exports
-export COLORTERM=truecolor
 
 # Shell Integrations
 eval "$(~/.local/bin/mise activate zsh --shims)"
