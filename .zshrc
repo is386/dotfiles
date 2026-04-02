@@ -14,9 +14,9 @@ gla() {
   done
 }
 
-# Plugins
 ZSH_PLUGINS="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 
+# Completions
 if [ ! -d "$ZSH_PLUGINS/zsh-completions" ]; then
   mkdir -p "$ZSH_PLUGINS"
   git clone https://github.com/zsh-users/zsh-completions.git "$ZSH_PLUGINS/zsh-completions"
@@ -29,18 +29,23 @@ else
   compinit -C
 fi
 zstyle ':completion:*' menu no
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z} l:|=* r:|=*'
 
+# FZF Tab
 if [ ! -d "$ZSH_PLUGINS/fzf-tab" ]; then
   mkdir -p "$ZSH_PLUGINS"
   git clone https://github.com/Aloxaf/fzf-tab.git "$ZSH_PLUGINS/fzf-tab"
 fi
 source "$ZSH_PLUGINS/fzf-tab/fzf-tab.plugin.zsh"
 
+# Vim Mode 
 if [ ! -d "$ZSH_PLUGINS/zsh-vi-mode" ]; then
   mkdir -p "$ZSH_PLUGINS"
   git clone https://github.com/jeffreytse/zsh-vi-mode "$ZSH_PLUGINS/zsh-vi-mode"
 fi
+ZVM_VI_HIGHLIGHT_FOREGROUND=default
+ZVM_VI_HIGHLIGHT_BACKGROUND=default
+ZVM_VI_HIGHLIGHT_EXTRASTYLE=standout
 source "$ZSH_PLUGINS/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
 # Prompt
