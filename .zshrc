@@ -15,10 +15,10 @@ gla() {
 }
 
 ZSH_PLUGINS="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
-
+mkdir -p "$ZSH_PLUGINS"
+  
 # Completions
 if [ ! -d "$ZSH_PLUGINS/zsh-completions" ]; then
-  mkdir -p "$ZSH_PLUGINS"
   git clone https://github.com/zsh-users/zsh-completions.git "$ZSH_PLUGINS/zsh-completions"
 fi
 fpath=($ZSH_PLUGINS/zsh-completions/src ~/.zsh/completions $fpath)
@@ -33,14 +33,18 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z} l:|=* r:|=*'
 
 # FZF Tab
 if [ ! -d "$ZSH_PLUGINS/fzf-tab" ]; then
-  mkdir -p "$ZSH_PLUGINS"
   git clone https://github.com/Aloxaf/fzf-tab.git "$ZSH_PLUGINS/fzf-tab"
 fi
 source "$ZSH_PLUGINS/fzf-tab/fzf-tab.plugin.zsh"
 
+# History Substring Search
+if [ ! -d "$ZSH_PLUGINS/zsh-history-substring-search" ]; then
+  git clone https://github.com/zsh-users/zsh-history-substring-search "$ZSH_PLUGINS/zsh-history-substring-search"
+fi
+source "$ZSH_PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
 # Vim Mode 
 if [ ! -d "$ZSH_PLUGINS/zsh-vi-mode" ]; then
-  mkdir -p "$ZSH_PLUGINS"
   git clone https://github.com/jeffreytse/zsh-vi-mode "$ZSH_PLUGINS/zsh-vi-mode"
 fi
 ZVM_VI_HIGHLIGHT_FOREGROUND=default
@@ -101,9 +105,8 @@ eval "$(zoxide init zsh)"
 
 zvm_after_init() {
   source <(fzf --zsh)
-  bindkey '^[[A' history-search-backward
-  bindkey '^[[B' history-search-forward
-  bindkey '^[OA' history-search-backward
-  bindkey '^[OB' history-search-forward
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+  bindkey '^[OA' history-substring-search-up
+  bindkey '^[OB' history-substring-search-down
 }
-
