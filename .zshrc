@@ -41,6 +41,8 @@ source "$ZSH_PLUGINS/fzf-tab/fzf-tab.plugin.zsh"
 if [ ! -d "$ZSH_PLUGINS/zsh-history-substring-search" ]; then
   git clone https://github.com/zsh-users/zsh-history-substring-search "$ZSH_PLUGINS/zsh-history-substring-search"
 fi
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=''
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 source "$ZSH_PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # Vim Mode 
