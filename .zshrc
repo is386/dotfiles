@@ -14,13 +14,18 @@ gla() {
   done
 }
 
+# Plugin Setup
 ZSH_PLUGINS="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 mkdir -p "$ZSH_PLUGINS"
   
+_install_plugin() {
+  local url="$1"
+  local dir="$ZSH_PLUGINS/${url##*/}"
+  [ -d "$dir" ] || git clone "$url" "$dir"
+}
+
 # Completions
-if [ ! -d "$ZSH_PLUGINS/zsh-completions" ]; then
-  git clone https://github.com/zsh-users/zsh-completions.git "$ZSH_PLUGINS/zsh-completions"
-fi
+_install_plugin https://github.com/zsh-users/zsh-completions
 fpath=($ZSH_PLUGINS/zsh-completions/src ~/.zsh/completions $fpath)
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
@@ -32,23 +37,17 @@ zstyle ':completion:*' menu no
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z} l:|=* r:|=*'
 
 # FZF Tab
-if [ ! -d "$ZSH_PLUGINS/fzf-tab" ]; then
-  git clone https://github.com/Aloxaf/fzf-tab.git "$ZSH_PLUGINS/fzf-tab"
-fi
+_install_plugin https://github.com/Aloxaf/fzf-tab
 source "$ZSH_PLUGINS/fzf-tab/fzf-tab.plugin.zsh"
 
 # History Substring Search
-if [ ! -d "$ZSH_PLUGINS/zsh-history-substring-search" ]; then
-  git clone https://github.com/zsh-users/zsh-history-substring-search "$ZSH_PLUGINS/zsh-history-substring-search"
-fi
+_install_plugin https://github.com/zsh-users/zsh-history-substring-search
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=''
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 source "$ZSH_PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
-# Vim Mode 
-if [ ! -d "$ZSH_PLUGINS/zsh-vi-mode" ]; then
-  git clone https://github.com/jeffreytse/zsh-vi-mode "$ZSH_PLUGINS/zsh-vi-mode"
-fi
+# Vim Mode
+_install_plugin https://github.com/jeffreytse/zsh-vi-mode
 ZVM_VI_HIGHLIGHT_FOREGROUND=default
 ZVM_VI_HIGHLIGHT_BACKGROUND=default
 ZVM_VI_HIGHLIGHT_EXTRASTYLE=standout
