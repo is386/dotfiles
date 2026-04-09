@@ -1,18 +1,6 @@
-# Functions
-gla() {
-  local owner="is386"
-  echo "Fetching repo list for owner: $owner"
-  gh repo list "$owner" --limit 500 --json name,sshUrl --jq '.[] | "\(.name) \(.sshUrl)"' |
-  while IFS=' ' read -r name sshUrl; do
-    if [ -d "$name/.git" ]; then
-      echo "==> [$name] exists — pulling updates"
-      ( cd "$name" && git pull )
-    else
-      echo "==> [$name] not found — cloning $sshUrl"
-      git clone "$sshUrl" "$name"
-    fi
-  done
-}
+#!/bin/bash
+
+source ~/.localrc
 
 # Plugin Setup
 ZSH_PLUGINS="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
@@ -91,10 +79,11 @@ alias cat="bat -p"
 alias cd="z"
 alias cp="cp -i"
 alias grep="rg"
+alias lrc="vi ~/.localrc"
 alias ls="ls --color"
 alias mv="mv -i"
-alias profile="vi ~/.zshrc"
-alias reload="source ~/.zshrc"
+alias zrc="vi ~/.zshrc"
+alias rl="source ~/.zshrc"
 alias rm="rm -i"
 alias vi="nvim"
 alias vim="nvim"
@@ -111,3 +100,4 @@ zvm_after_init() {
   bindkey '^[OA' history-substring-search-up
   bindkey '^[OB' history-substring-search-down
 }
+
