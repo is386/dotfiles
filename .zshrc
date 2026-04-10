@@ -5,7 +5,7 @@ source ~/.localrc
 # Plugin Setup
 ZSH_PLUGINS="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 mkdir -p "$ZSH_PLUGINS"
-  
+
 _install_plugin() {
   local url="$1"
   local dir="$ZSH_PLUGINS/${url##*/}"
@@ -48,7 +48,7 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats ' %F{6}[%b]%f'
 zstyle ':vcs_info:*' actionformats ' %F{6}[%b|%a]%f'
 
-_lean_precmd() { vcs_info }
+_lean_precmd() { vcs_info; }
 add-zsh-hook precmd _lean_precmd
 setopt prompt_subst
 
@@ -100,4 +100,3 @@ zvm_after_init() {
   bindkey '^[OA' history-substring-search-up
   bindkey '^[OB' history-substring-search-down
 }
-
