@@ -34,13 +34,6 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=''
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 source "$ZSH_PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
-# Vim Mode
-_install_plugin https://github.com/jeffreytse/zsh-vi-mode
-ZVM_VI_HIGHLIGHT_FOREGROUND=default
-ZVM_VI_HIGHLIGHT_BACKGROUND=default
-ZVM_VI_HIGHLIGHT_EXTRASTYLE=standout
-source "$ZSH_PLUGINS/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-
 # Prompt
 autoload -Uz add-zsh-hook vcs_info
 
@@ -73,6 +66,12 @@ setopt hist_find_no_dups
 setopt globdots
 setopt ignoreeof
 
+# Keymaps
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
+
 # Aliases
 alias bat="bat --theme=Nord"
 alias cat="bat -p"
@@ -82,21 +81,17 @@ alias grep="rg"
 alias lrc="vi ~/.localrc"
 alias ls="ls --color"
 alias mv="mv -i"
-alias zrc="vi ~/.zshrc"
 alias rl="source ~/.zshrc"
 alias rm="rm -i"
+alias tl="tmux source ~/.config/tmux/tmux.conf"
+alias trc="vi ~/.config/tmux/tmux.conf"
 alias vi="nvim"
 alias vim="nvim"
+alias zrc="vi ~/.zshrc"
 
 # Shell Integrations
 eval "$(~/.local/bin/mise activate zsh --shims)"
 
 eval "$(zoxide init zsh)"
 
-zvm_after_init() {
-  source <(fzf --zsh)
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-  bindkey '^[OA' history-substring-search-up
-  bindkey '^[OB' history-substring-search-down
-}
+source <(fzf --zsh)

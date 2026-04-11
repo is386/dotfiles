@@ -1,0 +1,32 @@
+#!/bin/bash
+
+CWD=$(pwd)
+
+if [ -z "$1" ]; then
+  WINDOW=$(basename "$CWD")
+else
+  WINDOW="$1"
+fi
+
+# Create new window and left pane (nvim)
+tmux new-window -n "$WINDOW" -c "$CWD"
+
+tmux send-keys "nvim ." Enter
+
+# Create right pane
+tmux split-window -h -p 33 -c "$CWD"
+
+# Capture the right pane (currently active after split)
+RIGHT_PANE=$(tmux display-message -p '#{pane_id}')
+
+# Check if claude exists
+if command -v claude >/dev/null 2>&1; then
+  # Split the right pane into top/bottom (claude will go in top)
+  tmux split-window -v -p 50 -t "$RIGHT_PANE" -c "$CWD"
+
+  # RIGHT_PANE remains the top pane after split
+  tmux send-keys -t "$RIGHT_PANE" "claude" Enter
+fi
+
+# Attach to tmux
+tmux attach 2>/dev/null || true
