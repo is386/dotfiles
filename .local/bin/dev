@@ -13,7 +13,7 @@ tmux new-window -n "$WINDOW" -c "$CWD"
 tmux send-keys "nvim" Enter
 
 # Create right pane
-tmux split-window -h -p 33 -c "$CWD"
+tmux split-window -h -p 50 -c "$CWD"
 
 # Capture the right pane (currently active after split)
 RIGHT_PANE=$(tmux display-message -p '#{pane_id}')
