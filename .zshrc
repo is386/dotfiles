@@ -95,3 +95,5 @@ eval "$(~/.local/bin/mise activate zsh --shims)"
 eval "$(zoxide init zsh)"
 
 source <(fzf --zsh)
+
+test -z "$TMUX" && (tmux attach || tmux new-session)
