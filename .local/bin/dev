@@ -1,17 +1,16 @@
 #!/bin/bash
 
-CWD=$(pwd)
-
-if [ -z "$1" ]; then
-  WINDOW=$(basename "$CWD")
-else
-  WINDOW="$1"
+if [ -n "$1" ]; then
+  cd "$1"
 fi
+
+CWD=$(pwd)
+WINDOW=$(basename "$CWD")
 
 # Create new window and left pane (nvim)
 tmux new-window -n "$WINDOW" -c "$CWD"
 
-tmux send-keys "nvim ." Enter
+tmux send-keys "nvim" Enter
 
 # Create right pane
 tmux split-window -h -p 33 -c "$CWD"
