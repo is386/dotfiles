@@ -5,7 +5,6 @@ font-family = Inconsolata
 font-thicken = true
 font-thicken-strength = 50
 adjust-cell-height = 6 # 12
-cursor-style = bar
+cursor-style = block
 cursor-style-blink = true
 shell-integration = zsh
-
