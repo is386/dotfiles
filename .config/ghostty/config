@@ -8,3 +8,4 @@ adjust-cell-height = 6 # 12
 cursor-style = block
 cursor-style-blink = true
 shell-integration = zsh
+desktop-notifications = true
