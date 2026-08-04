@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Add to global
+# git config --global core.hooksPath ~/.git-hooks
+
+# Limit the commit subject (first line) to 50 characters.
+# The body is left alone, so long descriptions are fine.
+
+max=50
+
+# First line that is neither blank nor a git comment.
+subject=$(grep -v '^#' "$1" | sed '/^[[:space:]]*$/d' | head -n 1)
+
+# Nothing to check: git aborts on an empty message anyway.
+[ -z "$subject" ] && exit 0
+
+# Generated messages (merge, revert, fixup/squash) are not ours to shorten.
+case "$subject" in
+Merge\ * | Revert\ * | fixup!\ * | squash!\ * | amend!\ *) exit 0 ;;
+esac
+
+len=${#subject}
+[ "$len" -le "$max" ] && exit 0
+
+echo "commit-msg: subject line is $len characters, limit is $max." >&2
+echo >&2
+echo "  $subject" >&2
+printf '  %*s^\n' "$max" '' >&2
+echo >&2
+echo "Shorten the first line and move the details into the body." >&2
+exit 1
