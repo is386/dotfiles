@@ -3,29 +3,98 @@
 # Add to global
 # git config --global core.hooksPath ~/.git-hooks
 
-# Limit the commit subject (first line) to 50 characters.
-# The body is left alone, so long descriptions are fine.
+# Checks the commit message against the rules from https://cbea.ms/git-commit/
+# that can be verified mechanically. Nothing is rewritten: the hook either
+# passes or says what to fix.
 
-max=50
+max_subject=50
+max_body=72
 
-# First line that is neither blank nor a git comment.
-subject=$(grep -v '^#' "$1" | sed '/^[[:space:]]*$/d' | head -n 1)
+# What will actually be committed: git's comments are stripped, and so are any
+# blank lines before the subject.
+body=$(grep -v '^#' "$1" | sed '/[^[:space:]]/,$!d')
+subject=$(printf '%s\n' "$body" | head -n 1)
 
 # Nothing to check: git aborts on an empty message anyway.
 [ -z "$subject" ] && exit 0
 
-# Generated messages (merge, revert, fixup/squash) are not ours to shorten.
+# Generated messages (merge, revert, fixup/squash) are not ours to rewrite.
 case "$subject" in
 Merge\ * | Revert\ * | fixup!\ * | squash!\ * | amend!\ *) exit 0 ;;
 esac
 
-len=${#subject}
-[ "$len" -le "$max" ] && exit 0
+fail=0
 
-echo "commit-msg: subject line is $len characters, limit is $max." >&2
-echo >&2
-echo "  $subject" >&2
-printf '  %*s^\n' "$max" '' >&2
-echo >&2
-echo "Shorten the first line and move the details into the body." >&2
-exit 1
+# Rule 1: limit the subject line to 50 characters.
+len=${#subject}
+if [ "$len" -gt "$max_subject" ]; then
+	echo "commit-msg: subject line is $len characters, limit is $max_subject." >&2
+	echo >&2
+	echo "  $subject" >&2
+	printf '  %*s^\n' "$max_subject" '' >&2
+	echo >&2
+	echo "Shorten the first line and move the details into the body." >&2
+	echo >&2
+	fail=1
+fi
+
+# Rule 2: capitalize the subject line.
+case "$subject" in
+[[:upper:]]*) ;;
+*)
+	echo "commit-msg: subject line does not start with a capital letter." >&2
+	echo >&2
+	echo "  $subject" >&2
+	echo >&2
+	fail=1
+	;;
+esac
+
+# Rule 3: do not end the subject line with a period.
+case "$subject" in
+*.)
+	echo "commit-msg: subject line ends with a period." >&2
+	echo >&2
+	echo "  $subject" >&2
+	echo >&2
+	fail=1
+	;;
+esac
+
+# Rule 4: separate subject from body with a blank line.
+second=$(printf '%s\n' "$body" | sed -n '2p')
+if [ -n "$second" ]; then
+	echo "commit-msg: no blank line between the subject and the body." >&2
+	echo >&2
+	echo "  $subject" >&2
+	echo "  $second" >&2
+	echo >&2
+	fail=1
+fi
+
+# Rule 5: wrap the body at 72 characters. Indented blocks, fenced code,
+# trailers, and lines holding an unwrappable token (a long URL) are skipped.
+long=$(printf '%s\n' "$body" | awk -v max="$max_body" '
+	NR < 3 { next }
+	/^```/ { fence = !fence; next }
+	fence { next }
+	/^[ \t]/ { next }
+	/^[A-Za-z][A-Za-z-]*: / { next }
+	length($0) <= max { next }
+	{
+		for (i = 1; i <= NF; i++)
+			if (length($i) > max) next
+		printf "  [%d chars] %s\n", length($0), $0
+	}
+')
+if [ -n "$long" ]; then
+	echo "commit-msg: body lines are longer than $max_body characters." >&2
+	echo >&2
+	printf '%s\n' "$long" >&2
+	echo >&2
+	echo "Hard-wrap the body; git will not wrap it for you." >&2
+	echo >&2
+	fail=1
+fi
+
+exit "$fail"
