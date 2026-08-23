@@ -9,3 +9,6 @@ cursor-style = block
 cursor-style-blink = true
 shell-integration = zsh
 desktop-notifications = true
+
+# Free up ctrl+shift+j for tmux resize-pane -D
+keybind = ctrl+shift+j=unbind
